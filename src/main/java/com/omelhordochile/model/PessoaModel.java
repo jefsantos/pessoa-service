@@ -19,8 +19,12 @@ public class PessoaModel {
 	@Column(name = "ds_nome")
 	private String nome;
 
-	@Column(name = "valor")
-	private double valor;
+	@Column(name = "email")
+	private String email;
+	
+	@Column(name = "Telefone_Whatsapp")
+	private String whatsapp;
+	
 
 	public Integer getId() {
 		return id;
@@ -38,12 +42,22 @@ public class PessoaModel {
 		this.nome = nome;
 	}
 
-	public double getValor() {
-		return valor;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setValor(double valor) {
-		this.valor = valor;
+	public void setEmail(String email) {
+		this.email = email;
 	}
+
+	public String getWhatsapp() {
+		return whatsapp;
+	}
+
+	public void setWhatsapp(String whatsapp) {
+		this.whatsapp = whatsapp;
+	}
+	
+	
 
 }

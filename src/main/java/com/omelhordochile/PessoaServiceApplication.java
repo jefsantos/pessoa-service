@@ -14,6 +14,7 @@ public class PessoaServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PessoaServiceApplication.class, args);
+
 	}
 	
 	@Bean
