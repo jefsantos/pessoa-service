@@ -1,0 +1,4 @@
+comando para escolher perfil do propertis:
+
+mvn spring-boot:run -Dspring-boot.run.profiles=dev
+
