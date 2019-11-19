@@ -85,6 +85,9 @@ public class PessoaService {
  
 		return this.pessoaRepository.findById(codigo);
 	}
+	
+	
+	
  
 	/***
 	 * EXCLUIR UM REGISTRO PELO CÓDIGO
