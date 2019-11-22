@@ -25,8 +25,9 @@ public class EmpresaModel implements Serializable{
 	int quantidadeTotal;
 	int quantidadeLivre;
 	String vaga;
+
 	
-	
+//	Vaga vaga = new Vaga();
 	
 	
 	public EmpresaModel() {
