@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Vaga {
@@ -14,6 +15,9 @@ public class Vaga {
 	String nomeCliente;
 	String Whatsapp;
 
+	@ManyToOne
+	private Carro carros = new Carro();
+	
 	
 	public Vaga() {
 			
