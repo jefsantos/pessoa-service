@@ -16,7 +16,7 @@ public class Vaga {
 	String Whatsapp;
 
 	@ManyToOne
-	private Carro carros = new Carro();
+	private Carro carro = new Carro();
 	
 	
 	public Vaga() {

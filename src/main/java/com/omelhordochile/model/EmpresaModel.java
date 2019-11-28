@@ -1,6 +1,8 @@
 package com.omelhordochile.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +21,8 @@ public class EmpresaModel implements Serializable {
 	int id_empresa;
 	String nome;
 
-	Vaga vaga = new Vaga();
+
+	private List<Carro> carros = new ArrayList<>(); 
 
 	public EmpresaModel() {
 
