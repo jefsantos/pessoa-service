@@ -17,7 +17,7 @@ public class Carro {
 	int quantidade_Vagas;
 	int quantidade_Livre;
 	
-	@OneToMany(mappedBy="carros")
+	@OneToMany(mappedBy="carro")
 	private List<Vaga> vagas = new ArrayList<>(); 
 	
 
@@ -26,7 +26,7 @@ public class Carro {
 		
 	}
 	
-	
+//	https://www.udemy.com/course/spring-boot-ionic/learn/lecture/8090550#overview
 	public Carro(int id_Carro, String modelo, int quantidade_Vagas, int quantidade_Livre) {
 		super();
 		this.id_Carro = id_Carro;
