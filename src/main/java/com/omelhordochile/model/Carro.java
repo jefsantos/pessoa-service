@@ -20,8 +20,7 @@ public class Carro {
 	@OneToMany(mappedBy="carro")
 	private List<Vaga> vagas = new ArrayList<>(); 
 	
-
-	
+		
 	public Carro() {
 		
 	}
