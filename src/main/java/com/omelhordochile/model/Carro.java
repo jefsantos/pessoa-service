@@ -1,25 +1,38 @@
 package com.omelhordochile.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Carro {
+public class Carro implements Serializable{
 
+	private static final long serialVersionUID = 1L;
+
+	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int id_Carro;
 	String modelo;
 	int quantidade_Vagas;
 	int quantidade_Livre;
 	
-	@OneToMany(mappedBy="carro")
+//	@OneToMany(mappedBy="carros")
 	private List<Vaga> vagas = new ArrayList<>(); 
 	
+//	@OneToMany
+//	@JoinColumn(name="id_empresa")
+//	private EmpresaModel EmpresaModel;
+//	
 		
 	public Carro() {
 		
