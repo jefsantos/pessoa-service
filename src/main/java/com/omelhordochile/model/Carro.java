@@ -18,6 +18,18 @@ public class Carro implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
+//	create table carro(
+//
+//			id_carro int not null AUTO_INCREMENT,
+//			modelo varchar (50),
+//			quantidade_Vagas varchar (50), 
+//			quantidade_Livre varchar (50),
+//		  empresa_id integer,
+//		  PRIMARY KEY ( id_carro )  
+//		  
+//		  );
+//
+
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,13 +38,11 @@ public class Carro implements Serializable{
 	int quantidade_Vagas;
 	int quantidade_Livre;
 	
-//	@OneToMany(mappedBy="carros")
-	private List<Vaga> vagas = new ArrayList<>(); 
 	
-//	@OneToMany
-//	@JoinColumn(name="id_empresa")
-//	private EmpresaModel EmpresaModel;
-//	
+	@ManyToOne
+	@JoinColumn(name="empresa_id")
+	private EmpresaModel empresaModel;
+	
 		
 	public Carro() {
 		
@@ -80,19 +90,6 @@ public class Carro implements Serializable{
 	}
 
 
-
-
-	public List<Vaga> getVagas() {
-		return vagas;
-	}
-
-
-
-
-	public void setVagas(List<Vaga> vagas) {
-		this.vagas = vagas;
-	}
-	
 	
 	
 }

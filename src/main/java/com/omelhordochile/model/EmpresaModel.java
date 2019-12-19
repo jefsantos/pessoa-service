@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
+
 @Table(name = "tabela_empresa")
 @Entity
 public class EmpresaModel implements Serializable {
@@ -24,8 +26,8 @@ public class EmpresaModel implements Serializable {
 	String nome;
 
 
-//	@OneToMany(mappedBy = "empresaModel")
-//	private List<Carro> carros = new ArrayList<>(); 
+	@OneToMany(mappedBy = "empresaModel")
+	private List<Carro> carros = new ArrayList<>(); 
 
 	public EmpresaModel() {
 
@@ -55,6 +57,13 @@ public class EmpresaModel implements Serializable {
 		this.nome = nome;
 	}
 
+	public List<Carro> getCarros() {
+		return carros;
+	}
+
+	public void setCarros(List<Carro> carros) {
+		this.carros = carros;
+	}
 
 
 }
