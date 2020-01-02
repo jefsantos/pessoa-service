@@ -12,9 +12,12 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+
+@Table(name = "tabela_carro")
 @Entity
-public class Carro implements Serializable{
+public class CarroModel implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
@@ -44,12 +47,12 @@ public class Carro implements Serializable{
 	private EmpresaModel empresaModel;
 	
 		
-	public Carro() {
+	public CarroModel() {
 		
 	}
 	
 //	https://www.udemy.com/course/spring-boot-ionic/learn/lecture/8090550#overview
-	public Carro(int id_Carro, String modelo, int quantidade_Vagas, int quantidade_Livre) {
+	public CarroModel(int id_Carro, String modelo, int quantidade_Vagas, int quantidade_Livre) {
 		super();
 		this.id_Carro = id_Carro;
 		this.modelo = modelo;
@@ -87,6 +90,14 @@ public class Carro implements Serializable{
 
 	public void setQuantidade_Livre(int quantidade_Livre) {
 		this.quantidade_Livre = quantidade_Livre;
+	}
+
+	public EmpresaModel getEmpresaModel() {
+		return empresaModel;
+	}
+
+	public void setEmpresaModel(EmpresaModel empresaModel) {
+		this.empresaModel = empresaModel;
 	}
 
 

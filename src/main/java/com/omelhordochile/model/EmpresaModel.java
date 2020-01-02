@@ -27,7 +27,7 @@ public class EmpresaModel implements Serializable {
 
 
 	@OneToMany(mappedBy = "empresaModel")
-	private List<Carro> carros = new ArrayList<>(); 
+	private List<CarroModel> carros = new ArrayList<>(); 
 
 	public EmpresaModel() {
 
@@ -57,11 +57,11 @@ public class EmpresaModel implements Serializable {
 		this.nome = nome;
 	}
 
-	public List<Carro> getCarros() {
+	public List<CarroModel> getCarros() {
 		return carros;
 	}
 
-	public void setCarros(List<Carro> carros) {
+	public void setCarros(List<CarroModel> carros) {
 		this.carros = carros;
 	}
 
