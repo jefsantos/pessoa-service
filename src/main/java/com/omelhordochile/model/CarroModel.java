@@ -21,17 +21,7 @@ public class CarroModel implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-//	create table carro(
-//
-//			id_carro int not null AUTO_INCREMENT,
-//			modelo varchar (50),
-//			quantidade_Vagas varchar (50), 
-//			quantidade_Livre varchar (50),
-//		  empresa_id integer,
-//		  PRIMARY KEY ( id_carro )  
-//		  
-//		  );
-//
+
 
 	
 	@Id
@@ -51,14 +41,17 @@ public class CarroModel implements Serializable{
 		
 	}
 	
-//	https://www.udemy.com/course/spring-boot-ionic/learn/lecture/8090550#overview
-	public CarroModel(int id_Carro, String modelo, int quantidade_Vagas, int quantidade_Livre) {
+
+	public CarroModel(int id_Carro, String modelo, int quantidade_Vagas, int quantidade_Livre,
+			EmpresaModel empresaModel) {
 		super();
 		this.id_Carro = id_Carro;
 		this.modelo = modelo;
 		this.quantidade_Vagas = quantidade_Vagas;
 		this.quantidade_Livre = quantidade_Livre;
+		this.empresaModel = empresaModel;
 	}
+
 
 	public int getId_Carro() {
 		return id_Carro;
@@ -98,6 +91,28 @@ public class CarroModel implements Serializable{
 
 	public void setEmpresaModel(EmpresaModel empresaModel) {
 		this.empresaModel = empresaModel;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id_Carro;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CarroModel other = (CarroModel) obj;
+		if (id_Carro != other.id_Carro)
+			return false;
+		return true;
 	}
 
 

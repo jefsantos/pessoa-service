@@ -29,7 +29,7 @@ public class CarroService {
 	 * @param carro
 	 * @return
 	 */
-	@RequestMapping(value="carro", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE,produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value="/InserirCarro", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE,produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody ResponseModel salvar(@RequestBody CarroModel carro){
  
  
@@ -37,6 +37,7 @@ public class CarroService {
  
 			this.carroRepository.save(carro);
  
+		
 			return new ResponseModel(1,"Registro salvo com sucesso!");
  
 		}catch(Exception e) {
@@ -50,7 +51,7 @@ public class CarroService {
 	 * @param carro
 	 * @return
 	 */
-	@RequestMapping(value="/carro", method = RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value="/AtualizarCarro", method = RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody ResponseModel atualizar(@RequestBody CarroModel carro){
  
 		try {
@@ -69,7 +70,7 @@ public class CarroService {
 	 * CONSULTAR TODAS AS PESSOAS
 	 * @return
 	 */
-	@RequestMapping(value="/carro", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value="/ConsultarCarro", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	ResponseEntity<Object> consultar(){
 		
 		return new ResponseEntity<>(this.carroRepository.findAll(), HttpStatus.OK);
