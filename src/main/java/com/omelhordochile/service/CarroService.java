@@ -51,7 +51,7 @@ public class CarroService {
 	 * @param carro
 	 * @return
 	 */
-	@RequestMapping(value="/AtualizarCarro", method = RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value="/carro", method = RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody ResponseModel atualizar(@RequestBody CarroModel carro){
  
 		try {
@@ -70,7 +70,7 @@ public class CarroService {
 	 * CONSULTAR TODAS AS PESSOAS
 	 * @return
 	 */
-	@RequestMapping(value="/ConsultarCarro", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value="/carro", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	ResponseEntity<Object> consultar(){
 		
 		return new ResponseEntity<>(this.carroRepository.findAll(), HttpStatus.OK);
