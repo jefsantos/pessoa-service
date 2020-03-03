@@ -29,7 +29,7 @@ public class CarroService {
 	 * @param carro
 	 * @return
 	 */
-	@RequestMapping(value="/InserirCarro", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE,produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value="/carro", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE,produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody ResponseModel salvar(@RequestBody CarroModel carro){
  
  
