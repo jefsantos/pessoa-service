@@ -1,5 +1,7 @@
 package com.omelhordochile.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.omelhordochile.model.CarroModel;
+import com.omelhordochile.model.PessoaModel;
 import com.omelhordochile.model.ResponseModel;
 import com.omelhordochile.repository.CarroRepository;
  
@@ -19,7 +22,7 @@ import com.omelhordochile.repository.CarroRepository;
  
 @RestController
 @RequestMapping("/service")
-public class CarroService {
+public class CarroService{
  
 	@Autowired
 	private CarroRepository carroRepository; 
@@ -84,8 +87,9 @@ public class CarroService {
 	@RequestMapping(value="/carro/{codigo}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody CarroModel buscar(@PathVariable("codigo") Integer codigo){
  
-		return this.carroRepository.findById(codigo);
-	}
+
+
+		return carroRepository.findById(codigo).orElse(null);}
 	
  
 	/***
@@ -96,11 +100,11 @@ public class CarroService {
 	@RequestMapping(value="/carro/{codigo}", method = RequestMethod.DELETE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody ResponseModel excluir(@PathVariable("codigo") Integer codigo){
  
-		CarroModel CarroModel = carroRepository.findById(codigo);
+		CarroModel carroModel  = carroRepository.findById(codigo).orElse(null);
  
 		try {
  
-			carroRepository.delete(CarroModel);
+			carroRepository.deleteById(codigo);
  
 			return new ResponseModel(1, "Registro excluido com sucesso!");
  

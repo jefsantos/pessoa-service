@@ -44,7 +44,7 @@ public class EmpresaService {
 	public @ResponseBody ResponseModel atualizar(@RequestBody EmpresaModel empresa) {
 
 		try {
-			this.empresaRepository.save(empresa);
+			empresaRepository.save(empresa);
 
 			return new ResponseModel(0, "Salvo com sucesso");
 		} catch (Exception e) {
