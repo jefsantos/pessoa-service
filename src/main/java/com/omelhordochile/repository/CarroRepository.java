@@ -7,16 +7,18 @@ package com.omelhordochile.repository;
 
 
 import java.util.List;
-import java.util.Optional;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.Repository;
 
 import com.omelhordochile.model.CarroModel;
  
-public interface CarroRepository extends JpaRepository<CarroModel, Integer> {
-
+public interface CarroRepository extends Repository<CarroModel, Integer> {
+ 
+	void save(CarroModel carro);
+ 
+	void delete(CarroModel carro);
  
 	List<CarroModel> findAll();
-
-
+ 
+	CarroModel findById(Integer id);
 }
