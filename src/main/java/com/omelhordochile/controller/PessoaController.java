@@ -1,4 +1,4 @@
-package com.omelhordochile.service;
+package com.omelhordochile.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,31 +11,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.omelhordochile.model.CarroModel;
+import com.omelhordochile.model.PessoaModel;
 import com.omelhordochile.model.ResponseModel;
-import com.omelhordochile.repository.CarroRepository;
+import com.omelhordochile.repository.PessoaRepository;
  
 
  
 @RestController
 @RequestMapping("/service")
-public class CarroService {
+public class PessoaController {
  
 	@Autowired
-	private CarroRepository carroRepository; 
+	private PessoaRepository pessoaRepository; 
  
 	/**
 	 * SALVAR UM NOVO REGISTRO
-	 * @param carro
+	 * @param pessoa
 	 * @return
 	 */
-	@RequestMapping(value="/carro", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE,produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public @ResponseBody ResponseModel salvar(@RequestBody CarroModel carro){
+	@RequestMapping(value="/pessoa", method = RequestMethod.POST, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE,produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public @ResponseBody ResponseModel salvar(@RequestBody PessoaModel pessoa){
  
  
 		try {
  
-			this.carroRepository.save(carro);
+			this.pessoaRepository.save(pessoa);
  
 			return new ResponseModel(1,"Registro salvo com sucesso!");
  
@@ -47,15 +47,15 @@ public class CarroService {
  
 	/**
 	 * ATUALIZAR O REGISTRO DE UMA PESSOA
-	 * @param carro
+	 * @param pessoa
 	 * @return
 	 */
-	@RequestMapping(value="/carro", method = RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public @ResponseBody ResponseModel atualizar(@RequestBody CarroModel carro){
+	@RequestMapping(value="/pessoa", method = RequestMethod.PUT, consumes=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public @ResponseBody ResponseModel atualizar(@RequestBody PessoaModel pessoa){
  
 		try {
  
-			this.carroRepository.save(carro);		
+			this.pessoaRepository.save(pessoa);		
  
 			return new ResponseModel(1,"Registro atualizado com sucesso!");
  
@@ -69,10 +69,10 @@ public class CarroService {
 	 * CONSULTAR TODAS AS PESSOAS
 	 * @return
 	 */
-	@RequestMapping(value="/carro", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value="/pessoa", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	ResponseEntity<Object> consultar(){
 		
-		return new ResponseEntity<>(this.carroRepository.findAll(), HttpStatus.OK);
+		return new ResponseEntity<>(this.pessoaRepository.findAll(), HttpStatus.OK);
 	}
  
 	/**
@@ -80,10 +80,10 @@ public class CarroService {
 	 * @param codigo
 	 * @return
 	 */
-	@RequestMapping(value="/carro/{codigo}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public @ResponseBody CarroModel buscar(@PathVariable("codigo") Integer codigo){
+	@RequestMapping(value="/pessoa/{codigo}", method = RequestMethod.GET, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	public @ResponseBody PessoaModel buscar(@PathVariable("codigo") Integer codigo){
  
-		return this.carroRepository.findById(codigo);
+		return this.pessoaRepository.findById(codigo);
 	}
 	
 	
@@ -94,14 +94,14 @@ public class CarroService {
 	 * @param codigo
 	 * @return
 	 */
-	@RequestMapping(value="/carro/{codigo}", method = RequestMethod.DELETE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value="/pessoa/{codigo}", method = RequestMethod.DELETE, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public @ResponseBody ResponseModel excluir(@PathVariable("codigo") Integer codigo){
  
-		CarroModel carroModel = carroRepository.findById(codigo);
+		PessoaModel pessoaModel = pessoaRepository.findById(codigo);
  
 		try {
  
-			carroRepository.delete(carroModel);
+			pessoaRepository.delete(pessoaModel);
  
 			return new ResponseModel(1, "Registro excluido com sucesso!");
  

@@ -1,4 +1,4 @@
-package com.omelhordochile.service;
+package com.omelhordochile.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +17,7 @@ import com.omelhordochile.repository.EmpresaRepository;
 
 @RestController
 @RequestMapping("/service")
-public class EmpresaService {
+public class EmpresaController {
 	@Autowired
 	private EmpresaRepository empresaRepository;
 
